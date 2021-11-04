@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cliquepoema</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #verso1 {text-indent: -50px}
+            #verso2 {text-indent: 50px}
+            #verso4 {text-indent: -50px}
+            #verso5 {text-indent: 100px}
+        </style>
+    </head>
+    <body style='font-family: Garamond, sans-serif; text-align: center'>
+        <div>
+            <h1 id="titulo" onclick="document.getElementById('verso1').innerHTML= 'A poesia'">Cliquepoema</h1>
+            
+            <div id="versos">
+                <p id="verso1" onclick="document.getElementById('verso2').innerHTML= 'se revela'"></p>
+                <p id="verso2" onclick="document.getElementById('verso3').innerHTML= 'a todos'"></p>
+                <p id="verso3" onclick="document.getElementById('verso4').innerHTML= 'que procuram'"></p>
+                <p id="verso4" onclick="document.getElementById('verso5').innerHTML= 'por ela.'"></p>
+                <p id="verso5" onclick="document.getElementById('verso3').innerHTML= 'a tolos'"></p>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>
+
+<!-- experimentar usando "display: none" --!>

@@ -1,0 +1,16 @@
+body {
+	text-align: center;
+	background-color: #191970;
+	font-size: 140%;
+	font-family: "Garamond", sans-serif;
+}
+
+.astros {
+	color: #191970;
+	font-weight: bold;
+}
+
+h1 {
+	margin-bottom: 2em;
+	margin-top: 1em;
+}
