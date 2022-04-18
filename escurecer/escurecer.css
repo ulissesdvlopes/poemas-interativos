@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+}
+
+#content {
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.content p {
+    color: #fff;
+    font-size: 2rem;
+}
