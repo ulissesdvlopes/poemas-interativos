@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+
+.switch {
+    width: 3rem;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 320px;
+    margin: auto;
+}
+
+.content > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span {
+    font-size: 1.5rem;
+}
