@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the road not taken</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <form class="content" id="content">
+
+        <h2>Escolha a estrada pela qual você deseja passar</h2>
+
+        <label>
+            <input id="common" name="survey" value="common" type="radio" />
+            Estrada mais percorrida
+        </label>
+        <label>
+            <input id="uncommon" name="survey" value="uncommon" type="radio" />
+            Estrada menos percorrida
+        </label>
+        
+        <button id="submit">Escolher</button>
+    </form>
+    
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+      
+        import { initializeApp, firestore } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getFirestore, collection, getDocs, doc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"
+
+        // TODO: Add SDKs for Firebase products that you want to use
+      
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+      
+        // Your web app's Firebase configuration
+      
+        const firebaseConfig = {
+      
+          apiKey: "AIzaSyC8gXyRn3TFLMxlZ-WNtAPn5V4EM0JLIWE",
+      
+          authDomain: "the-road-not-taken-eae28.firebaseapp.com",
+      
+          projectId: "the-road-not-taken-eae28",
+      
+          storageBucket: "the-road-not-taken-eae28.appspot.com",
+      
+          messagingSenderId: "661889598564",
+      
+          appId: "1:661889598564:web:2643f4a478470d9ff04b71"
+      
+        };
+      
+      
+        // Initialize Firebase
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function getResults() {
+            const survey = collection(db, "survey");
+            const surveySnapshot = await getDocs(survey);
+            const surveyList = surveySnapshot.docs.map(doc => doc.data());
+            console.log(surveyList);
+            return surveyList;
+        }
+
+        //getResults()
+
+        const submit = document.getElementById("submit");
+        submit.addEventListener("click", e => {
+            e.preventDefault();
+            const common = document.getElementById("common");
+            const uncommon = document.getElementById("uncommon");
+            const col = collection(db, "survey");
+            const roadsDoc = doc(col, "roads");
+            //const increment = db.FieldValue.increment(1);
+            console.log(roadsDoc);
+            if(common.checked) {
+                console.log("increment common");
+                //roadsDoc.update({ common: increment });
+                return;
+            } if(uncommon.checked) {
+                console.log("increment uncommon");
+                return;
+            }
+        })
+      
+      </script>
+</body>
+</html>
