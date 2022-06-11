@@ -10,6 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: black;
+    touch-action: none;
 }
 
 p { 
@@ -23,6 +24,8 @@ p {
 
 #light {
     position: absolute;
+    top: 0;
+    left: 50%;
     width: 10vh;
     height: 10vh;
     border-radius: 50%;
