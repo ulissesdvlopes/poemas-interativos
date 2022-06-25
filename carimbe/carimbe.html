@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheio/Vazio</title>
+    <title>carimbe</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body onselectstart="return false">
 
-    <p class="text">POEMA</p>
+    <main id="canvas">
+        <p class="text">POEMA</p>
+    </main>
+    <aside id="controls">
+
+        <label>
+            Texto
+            <input type="text" id="content">
+        </label>
+        <label>
+            Tamanho
+            <input type="number" id="size" value="24" min="1">
+        </label>
+        <label>
+            Rotação
+            <input type="number" id="rotation" value="0" min="0" max="360">
+        </label>
+        <label>
+            Cor
+            <input type="color" id="color">
+        </label>
+        
+
+    </aside>
+    <div id="preview">
+
+    </div>
 
     <script src="main.js"></script>
 </body>
