@@ -3,6 +3,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .text {
@@ -19,6 +20,7 @@ body {
 main {
     position: relative;
     flex: 0.6;
+    max-height: 60vh;
 }
 
 #controls {
@@ -33,5 +35,29 @@ main {
 
 #preview {
     flex: 0.2;
+    max-height: 20vh;
+}
+
+canvas {
+    display: block;
+    /* width: 100% !important;
+    height: 100% !important; */
+}
+
+input {
+    max-width: 120px;
+    display: block;
+}
+
+@media (min-width: 780px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.8fr 0.2fr;
+    }
+    main {
+        grid-column-end: span 2;
+        max-height: 80vh;
+    }
 }
 

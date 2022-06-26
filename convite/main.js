@@ -1,10 +1,15 @@
 let sketch = function(p) {
 
   p.setup = function(){
-    p.createCanvas(window.innerWidth - 5, (window.innerHeight - 5)*0.6);
+    if(p.windowWidth < 780) {
+      p.createCanvas(p.windowWidth, p.windowHeight*0.6);
+    } else {
+      p.createCanvas(p.windowWidth, p.windowHeight*0.8);
+    }
   }
 
   p.mousePressed = function(){
+    if(p.mouseY > p.height) return;
     stamp(p);
   }
 
@@ -15,7 +20,11 @@ new p5(sketch, 'canvas');
 let preview = function(p) {
 
   p.setup = function(){
-    p.createCanvas(window.innerWidth - 5, (window.innerHeight - 5)*0.2);
+    if(p.windowWidth < 780) {
+      p.createCanvas(p.windowWidth, p.windowHeight*0.2);
+    } else {
+      p.createCanvas(p.windowWidth*0.5, p.windowHeight*0.2);
+    }
   }
 
   p.draw = function(){
