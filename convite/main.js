@@ -60,8 +60,8 @@ function stamp(p, posX, posY) {
 
 var angle = 0;
 var wordSize = 24;
-var word = "";
-var wordColor = "#000000";
+var word = "convite";
+var wordColor = "#bb0000";
 
 document.getElementById("content").addEventListener("input", (e) => {
   //console.log(e.target.value);
