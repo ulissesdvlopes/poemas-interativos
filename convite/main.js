@@ -8,8 +8,9 @@ let sketch = function(p) {
     }
   }
 
-  p.mousePressed = function(){
+  p.mouseClicked = function(){
     if(p.mouseY > p.height) return;
+    if(focusMode) return;
     stamp(p);
   }
 
@@ -48,34 +49,56 @@ function stamp(p, posX, posY) {
     p.angleMode(p.DEGREES);
     p.translate(posX, posY);
     
-    p.textSize(wordSize);
-    p.fill(wordColor);
-    p.rotate(angle);
+    p.textSize(params.wordSize.value);
+    p.fill(params.wordColor.value);
+    p.rotate(params.rotation.value);
     
     p.textAlign(p.CENTER,p.CENTER);
-    p.text(word, 0, 0);
+    p.text(params.word.value, 0, 0);
     p.pop();
     return false;
 }
 
-var angle = 0;
-var wordSize = 24;
-var word = "convite";
-var wordColor = "#bb0000";
+var params = {
+  word: {
+    element: document.getElementById("content"),
+    value: "convite"
+  },
+  wordSize: {
+    element: document.getElementById("size"),
+    value: 24
+  },
+  rotation: {
+    element: document.getElementById("rotation"),
+    value: 0
+  },
+  wordColor: {
+    element: document.getElementById("color"),
+    value: "#bb0000"
+  }
+}
 
-document.getElementById("content").addEventListener("input", (e) => {
-  //console.log(e.target.value);
-  word = e.target.value;
-});
-document.getElementById("size").addEventListener("input", (e) => {
-  //console.log(e.target.value);
-  wordSize = Number(e.target.value);
-});
-document.getElementById("rotation").addEventListener("input", (e) => {
-  //console.log(e.target.value);
-  angle = Number(e.target.value);
-});
-document.getElementById("color").addEventListener("input", (e) => {
-  //console.log(e.target.value);
-  wordColor = e.target.value;
-});
+var focusMode = false;
+
+Object.entries(params).forEach(([key, obj]) => {
+  console.log(key, obj);
+  obj.element.addEventListener("input", e => {
+    let newValue = e.target.value;
+    if(key == "wordSize" || key == "rotation") {
+      newValue = Number(newValue);
+    }
+    obj.value = newValue;
+  })
+
+  obj.element.addEventListener("focus", e => {
+    focusMode = true;
+    console.log("focusMode", focusMode);
+  })
+
+  obj.element.addEventListener("blur", e => {
+    focusMode = false;
+    console.log("focusMode", focusMode);
+  })
+
+})
+
